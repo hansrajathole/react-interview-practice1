@@ -1,0 +1,42 @@
+
+
+.App {
+    text-align: center;
+    
+}
+.pagination-text {
+    font-size: 2rem;
+    font-weight: 500;
+}
+.card {
+    height: 200px;
+    width: 220px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+   
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-image {
+    height: 100px;
+    width: 100px;
+}
+
+.page {
+    border: 1px solid black;
+    margin: 2px;
+    padding: 3px 5px;
+    cursor: pointer;
+
+}
+
+.page-container {
+    padding: 10px;
+}
+
+.active {
+    background-color: cadetblue ;
+}
