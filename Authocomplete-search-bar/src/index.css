@@ -3,6 +3,10 @@
   padding: 30px;
 }
 
+b{
+  font-size: larger;
+  text-transform: uppercase;
+}
 .input {
   margin: 3px;
   width: 500px;
