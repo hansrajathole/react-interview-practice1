@@ -6,8 +6,8 @@ const App = () => {
   const [task, settask] = useState('')
 
   const handleSubmit = (e)=>{
-    if(!task.trim()) return
     e.preventDefault()
+    if(!task.trim()) return
 
     const obj = {
       id  : todo.length+1,
