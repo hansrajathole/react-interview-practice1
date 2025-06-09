@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { useDispatch ,useSelector } from 'react-redux'
+import { add, remove } from './store/todoSlice'
 
 const App = () => {
 
-  const [todo, setTodo] = useState([])
+  // const [todo, setTodo] = useState([])
   const [task, settask] = useState('')
+  const todo = useSelector((state)=> state.todolist.data)
+  const dispatch = useDispatch()
 
   const handleSubmit = (e)=>{
     e.preventDefault()
@@ -14,14 +18,15 @@ const App = () => {
       task : task,
       isCompleted : false
     }
-
-    setTodo((prev)=>[...prev , obj])
-
+    dispatch(add(obj))
+    // setTodo((prev)=>[...prev , obj])
+    
     settask('')
   }
 
- const handleDelete = (index) =>{
-  setTodo((prev)=> prev.filter((task , i)=> i !== index))
+ const handleDelete = (id) =>{
+  // setTodo((prev)=> prev.filter((task , i)=> i !== index))
+  dispatch(remove(id))
  }
 
  const handleToggle = (id)=>{
@@ -56,7 +61,7 @@ const App = () => {
                   checked={list.isCompleted} onChange={()=>handleToggle(list.id)}/>
                   <p   className={list.isCompleted ? "strikethrough" : ""}>{list.task}</p>
                 </div>
-                <button onClick={()=>handleDelete(index)}>X</button>
+                <button onClick={()=>handleDelete(list.id)}>X</button>
               </div>
             ))
           }
