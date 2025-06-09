@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
-import { add, remove } from './store/todoSlice'
+import { add, remove, toggleTodo } from './store/todoSlice'
 
 const App = () => {
 
@@ -30,15 +30,17 @@ const App = () => {
  }
 
  const handleToggle = (id)=>{
-  setTodo((prev)=>prev.map((t)=>{
-    if(t.id === id){
-      return {...t , isCompleted : !t.isCompleted}
-    }else {
-      return t
-    }
-  }
+  // setTodo((prev)=>prev.map((t)=>{
+  //   if(t.id === id){
+  //     return {...t , isCompleted : !t.isCompleted}
+  //   }else {
+  //     return t
+  //   }
+  // }
     
-  ))
+  // ))
+
+  dispatch(toggleTodo(id))
  }
 
   return (
